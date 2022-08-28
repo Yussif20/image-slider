@@ -8,6 +8,10 @@ const prevSilde = () => {
   console.log(`waten`);
 };
 
+const checker = () => {
+  slideNumberElement.textContent =
+    `Slide #` + currnetSlide + ` of ` + slidesCount;
+};
 /////////////////////////////////////////  Selecting Elements   ///////////////////////////////////////
 // get slider items, Array.from()[ES6 feature]
 var sliderImages = Array.from(
@@ -51,6 +55,11 @@ for (let i = 1; i <= slidesCount; i++) {
 //Add the created ul to the page
 document.getElementById(`indicators`).appendChild(paginationElement);
 
+//get the created ul
+let paginationCreatedUl = document.getElementById(`pagination-ul`);
+
+// Trigger the cheacker function
+checker();
 ///////////////////////////////////////    Handling Events   //////////////////////////////////////////////
 // Handling clicks on next and previous buttons
 nextButton.onclick = nextSilde;
