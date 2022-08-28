@@ -10,9 +10,13 @@ body {
   position: relative;
   width: 800px;
   height: 250px;
-  margin: 10px auto;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-around;
 }
 .slider-container img {
+  max-width: 800px;
+  max-height: 250px;
   position: absolute;
   opacity: 0;
   transition: opacity 1s;
@@ -58,4 +62,29 @@ body {
 .slider-controls .next.disabled {
   background-color: rgba(0, 150, 136, 0.5);
   cursor: no-drop;
+}
+.slider-controls .indicators {
+  width: 60%;
+  float: left;
+}
+.slider-controls .indicators ul {
+  list-style: none;
+  margin: 0;
+  text-align: center;
+}
+.slider-controls .indicators ul li {
+  display: inline-block;
+  background-color: #f6f6f6;
+  color: #333;
+  font-weight: bold;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+.slider-controls .indicators ul li.active {
+  background-color: #009688;
+  color: #fff;
 }
