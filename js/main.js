@@ -9,8 +9,15 @@ const prevSilde = () => {
 };
 
 const checker = () => {
+  // set the slide number string
   slideNumberElement.textContent =
     `Slide #` + currnetSlide + ` of ` + slidesCount;
+
+  //adding the active class to the current slide
+  sliderImages[currnetSlide - 1].classList.add(`active`);
+
+  // set active classs on current pagination item
+  paginationCreatedUl.children[currnetSlide - 1].classList.add(`active`);
 };
 /////////////////////////////////////////  Selecting Elements   ///////////////////////////////////////
 // get slider items, Array.from()[ES6 feature]
