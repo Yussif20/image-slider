@@ -1,11 +1,21 @@
 ///////////////     Functions ///////////////
 
 const nextSilde = () => {
-  console.log(`rawan`);
+  if (nextButton.classList.contains(`disabled`)) {
+    return false;
+  } else {
+    currnetSlide++;
+    checker();
+  }
 };
 
 const prevSilde = () => {
-  console.log(`waten`);
+  if (prevButton.classList.contains(`disabled`)) {
+    return false;
+  } else {
+    currnetSlide--;
+    checker();
+  }
 };
 
 const checker = () => {
