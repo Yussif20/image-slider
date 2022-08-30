@@ -104,6 +104,14 @@ let paginationCreatedUl = document.getElementById(`pagination-ul`);
 var paginationsBullets = Array.from(
   document.querySelectorAll(`#pagination-ul li`)
 );
+console.log(paginationsBullets);
+// loop through all bullets items
+for (let i = 0; i < paginationsBullets.length; i++) {
+  paginationsBullets[i].onclick = function () {
+    currnetSlide = parseInt(this.getAttribute(`data-index`));
+    checker();
+  };
+}
 
 // Trigger the cheacker function
 checker();
