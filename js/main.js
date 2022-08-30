@@ -13,11 +13,36 @@ const checker = () => {
   slideNumberElement.textContent =
     `Slide #` + currnetSlide + ` of ` + slidesCount;
 
+  //remove all active classes
+  removeAllActive();
   //adding the active class to the current slide
   sliderImages[currnetSlide - 1].classList.add(`active`);
 
   // set active classs on current pagination item
   paginationCreatedUl.children[currnetSlide - 1].classList.add(`active`);
+
+  //the disabled class
+  if (currnetSlide == 1) {
+    prevButton.classList.add(`disabled`);
+  } else {
+    prevButton.classList.remove(`disabled`);
+  }
+  if (currnetSlide == slidesCount) {
+    nextButton.classList.add(`disabled`);
+  } else {
+    nextButton.classList.remove(`disabled`);
+  }
+};
+
+const removeAllActive = () => {
+  //remove active class from all images
+  sliderImages.forEach((img) => {
+    img.classList.remove(`active`);
+  });
+  //remove active class from all bullets
+  paginationsBullets.forEach((bullet) => {
+    bullet.classList.remove(`active`);
+  });
 };
 /////////////////////////////////////////  Selecting Elements   ///////////////////////////////////////
 // get slider items, Array.from()[ES6 feature]
@@ -64,6 +89,11 @@ document.getElementById(`indicators`).appendChild(paginationElement);
 
 //get the created ul
 let paginationCreatedUl = document.getElementById(`pagination-ul`);
+
+// get pagination items, Array.from()[ES6 feature]
+var paginationsBullets = Array.from(
+  document.querySelectorAll(`#pagination-ul li`)
+);
 
 // Trigger the cheacker function
 checker();
